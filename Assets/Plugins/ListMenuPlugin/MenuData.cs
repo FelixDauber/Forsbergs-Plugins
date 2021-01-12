@@ -31,5 +31,9 @@ namespace ListMenuPlugin
         {
             buttons.Remove(GetButton(name));
         }
+        public List<ButtonData> GetButtons()
+        {
+            return buttons;
+        }
     }
 }
