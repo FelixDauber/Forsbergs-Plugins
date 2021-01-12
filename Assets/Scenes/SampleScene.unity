@@ -176,7 +176,7 @@ MonoBehaviour:
       menuName: 
       buttons: []
     menues:
-    - menuName: 1
+    - menuName: Main Menu
       buttons:
       - buttonName: Play
         onClick:
@@ -190,47 +190,17 @@ MonoBehaviour:
         onClick:
           m_PersistentCalls:
             m_Calls: []
-    - menuName: 2
+    - menuName: Settings
       buttons:
-      - buttonName: 
+      - buttonName: Graphics
         onClick:
           m_PersistentCalls:
             m_Calls: []
-      - buttonName: 
+      - buttonName: Audio
         onClick:
           m_PersistentCalls:
             m_Calls: []
-      - buttonName: 
-        onClick:
-          m_PersistentCalls:
-            m_Calls: []
-      - buttonName: 
-        onClick:
-          m_PersistentCalls:
-            m_Calls: []
-      - buttonName: 
-        onClick:
-          m_PersistentCalls:
-            m_Calls: []
-    - menuName: 3
-      buttons:
-      - buttonName: 
-        onClick:
-          m_PersistentCalls:
-            m_Calls: []
-      - buttonName: 
-        onClick:
-          m_PersistentCalls:
-            m_Calls: []
-      - buttonName: 
-        onClick:
-          m_PersistentCalls:
-            m_Calls: []
-      - buttonName: 
-        onClick:
-          m_PersistentCalls:
-            m_Calls: []
-      - buttonName: 
+      - buttonName: Controls
         onClick:
           m_PersistentCalls:
             m_Calls: []
