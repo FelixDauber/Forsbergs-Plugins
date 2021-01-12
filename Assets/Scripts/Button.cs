@@ -1,27 +1,35 @@
+using Menu;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace Menu
-{
-    //For hooking up the button / will contain references the prefab's components ect
-    public class Button : MonoBehaviour
-    {
-        public Text text;
-        public Image background;
-        public Button previousBranch;
-        public GameObject branch;
-        public MenuSet root;
+//For hooking up the button / will contain references the prefab's components ect
+public class Button : MonoBehaviour {
+    public Text label;
+    public Image background;
+    Button previousBranch;
+    GameObject branch;
+    MenuBase root;
 
-        [ContextMenu("Expand Branch")]
-        public void ExpandBranch()
-        {
+    public void SetUp(string label, Button previousBranch, GameObject branch, MenuBase root) {
+        this.label.text = label;
+        this.previousBranch = previousBranch;
+        this.branch = branch;
+        this.root = root;
+    }
+    
+    public void CreateBranch() {
+        
+    }
+    
+    [ContextMenu("Expand Branch")]
+    public void ExpandBranch() {
+        //Tell previous branch to set itself to active
+        previousBranch.ExpandBranch();
+        if (branch != null)
             branch.SetActive(true);
-            //Send a message to previous branch to set itself to active...
-        }
-        public void CloseBranch()
-        {
-            //Closes the branch.
-        }
+    }
+    
+    public void CloseBranch() {
+        branch.SetActive(false);
     }
 }
