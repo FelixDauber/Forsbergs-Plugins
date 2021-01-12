@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MenuSet
   m_EditorClassIdentifier: 
   buttonPrefab: {fileID: 0}
+  listPrefab: {fileID: 0}
   buttonData:
     name: 
     branchButtons:

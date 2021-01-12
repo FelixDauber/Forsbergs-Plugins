@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 namespace Menu
 {
@@ -6,6 +8,7 @@ namespace Menu
     public class MenuBase : MonoBehaviour
     {
         public MenuSet menuSet;
+        private List<Button> buttons = new List<Button>();
 
         //Save buttons to have an easier time calling them later
         //Set up a custom inspector with a single button and the menuSet variable.
@@ -13,11 +16,37 @@ namespace Menu
         [ContextMenu("Create Menu")]
         public void CreateMenu()
         {
-            //Sets up the buttons, use the MenuSet as a blueprint
+            //Instantiate list
+            GameObject newList = Instantiate(menuSet.listPrefab, transform);
+
+            //Instantiate buttons
+            foreach (var button in menuSet.buttonData.branchButtons)
+            {
+                Button newButton = Instantiate(menuSet.buttonPrefab, newList.transform);
+                //newButton.SetUp(menuSet, previousBranch, button.data, root)
+            }
         }
         public void CloseAllBranches()
         {
             //Calls close branch on all buttons
+            foreach (var button in buttons)
+            {
+                button.CloseBranch();
+            }
+        }
+    }
+
+    [CustomEditor(typeof(MenuBase))]
+    public class MenuEditor : Editor
+    {
+        public override void OnInspectorGUI()
+        {
+            DrawDefaultInspector();
+            GUILayout.Space(10);
+            if (GUILayout.Button("CreateMenu"))
+            {
+                Debug.Log("Dab!");
+            }
         }
     }
 }
