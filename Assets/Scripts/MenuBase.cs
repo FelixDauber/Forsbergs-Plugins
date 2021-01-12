@@ -23,6 +23,7 @@ namespace Menu
             foreach (var button in menuSet.buttonData.branchButtons)
             {
                 Button newButton = Instantiate(menuSet.buttonPrefab, newList.transform);
+                //newButton = 
                 //newButton.SetUp(menuSet, previousBranch, button.data, root)
             }
         }
@@ -45,7 +46,7 @@ namespace Menu
             GUILayout.Space(10);
             if (GUILayout.Button("CreateMenu"))
             {
-                Debug.Log("Dab!");
+                (target as MenuBase).CreateMenu();
             }
         }
     }
