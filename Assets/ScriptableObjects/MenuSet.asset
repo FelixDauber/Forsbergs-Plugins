@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0352e5c8bfdb4918a120afbbbd70b65e, type: 3}
   m_Name: MenuSet
   m_EditorClassIdentifier: 
+  buttonPrefab: {fileID: 0}
   buttonData:
     name: 
     branchButtons:
-    - name: 
+    - name: Play
       branchButtons: []
-      onButtonClick:
-        m_PersistentCalls:
-          m_Calls: []
-    - name: 
-      branchButtons: []
-      onButtonClick:
-        m_PersistentCalls:
-          m_Calls: []
-    onButtonClick:
-      m_PersistentCalls:
-        m_Calls: []
+    - name: Settings
+      branchButtons:
+      - name: Video
+        branchButtons: []
+      - name: Audio
+        branchButtons: []
+    - name: Exit
+      branchButtons:
+      - name: 
+        branchButtons: []

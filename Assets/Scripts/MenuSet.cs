@@ -7,6 +7,7 @@ namespace Menu
     
     public class MenuSet : ScriptableObject
     {
+        public Button buttonPrefab;
         public ButtonData buttonData;
     }
 }
