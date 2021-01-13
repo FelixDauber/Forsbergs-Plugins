@@ -13,7 +13,8 @@ namespace ListMenuPlugin
     {
         public MenuData currentMenu;
         public List<MenuData> menues = new List<MenuData>();
-        public UnityEvent onCurrentMenuChange;
+        //TODO decide if this Event should be visible in the inspector
+        [HideInInspector] public UnityEvent onCurrentMenuChange;
 
         public void Setup()
         {
