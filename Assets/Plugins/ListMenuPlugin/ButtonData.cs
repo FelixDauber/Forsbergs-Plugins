@@ -10,7 +10,7 @@ namespace ListMenuPlugin
     public class ButtonData
     {
         public string buttonName;
-        public UnityEvent onClick;
+        public UnityEvent onClick = new UnityEvent();
 
         //Constructor
         public ButtonData(string name = "New Button", UnityAction onClick = null)
