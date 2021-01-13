@@ -6,21 +6,17 @@ using UnityEngine.UI;
 
 namespace Plugins.ListMenuPlugin {
     public class ButtonObject : MonoBehaviour {
-        string buttonName;
         public UnityEvent onClick = new UnityEvent();
         public Text label;
         
         public void SetUp(ButtonData buttonData, Transform parent) {
-            buttonName = buttonData.buttonName;
+            name = buttonData.buttonName;
             label.text = buttonData.buttonName;
+            transform.SetParent(parent);
             
             if (buttonData.onClick != null) {
                 onClick = buttonData.onClick;
-                GetComponent<Button>().onClick = onClick as Button.ButtonClickedEvent;
-                //GetComponent<Button>().onClick.AddListener(DebugEvent);
             }
-            transform.SetParent(parent);
-            name = buttonName;
         }
 
         public void invokeOnClick() {
@@ -32,7 +28,7 @@ namespace Plugins.ListMenuPlugin {
         }
 
         void DebugEvent() {
-            Debug.Log("onClick invoked");
+            Debug.Log(name + ": onClick invoked");
         }
     }
 }
