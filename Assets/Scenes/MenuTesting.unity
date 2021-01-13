@@ -483,8 +483,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1980998302
-Transform:
+--- !u!224 &1980998302
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -497,6 +497,11 @@ Transform:
   m_Father: {fileID: 816578183}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &1980998303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,48 +519,47 @@ MonoBehaviour:
       menuName: 
       buttons: []
     menues:
-    - menuName: Menu_1
+    - menuName: MainMenu
       buttons:
-      - buttonName: A
+      - buttonName: Play
         onClick:
           m_PersistentCalls:
             m_Calls: []
-      - buttonName: B
+      - buttonName: Settings
         onClick:
           m_PersistentCalls:
             m_Calls: []
-      - buttonName: C
+      - buttonName: Exit
         onClick:
           m_PersistentCalls:
             m_Calls: []
-    - menuName: Menu_2
+    - menuName: PlayMenu
       buttons:
-      - buttonName: D
+      - buttonName: Online
         onClick:
           m_PersistentCalls:
             m_Calls: []
-      - buttonName: E
+      - buttonName: Local
         onClick:
           m_PersistentCalls:
             m_Calls: []
-      - buttonName: F
-        onClick:
-          m_PersistentCalls:
-            m_Calls: []
-    - menuName: Menu_3
+    - menuName: SettingsMenu
       buttons:
-      - buttonName: G
+      - buttonName: Input
         onClick:
           m_PersistentCalls:
             m_Calls: []
-      - buttonName: H
+      - buttonName: Audio
         onClick:
           m_PersistentCalls:
             m_Calls: []
-      - buttonName: I
+      - buttonName: Video
         onClick:
           m_PersistentCalls:
             m_Calls: []
+    onCurrentMenuChange:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!114 &1980998304
 MonoBehaviour:
   m_ObjectHideFlags: 0
