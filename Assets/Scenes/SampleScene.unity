@@ -232,12 +232,6 @@ MonoBehaviour:
                 m_StringArgument: Main Menu
                 m_BoolArgument: 0
               m_CallState: 2
-    - menuName: 
-      buttons:
-      - buttonName: Back
-        onClick:
-          m_PersistentCalls:
-            m_Calls: []
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

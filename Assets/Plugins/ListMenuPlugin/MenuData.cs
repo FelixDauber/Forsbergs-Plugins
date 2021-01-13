@@ -18,11 +18,13 @@ namespace ListMenuPlugin
             if (menu != null)
             {
                 Debug.Log("Adding button for " + menu);
-                AddButton("Back", delegate { menu.ReturnToRootMenu(); });
+                UnityEvent newEvent = new UnityEvent();
+                newEvent.AddListener(delegate { menu.ReturnToRootMenu(); });
+                AddButton("Back", newEvent);
             }
         }
 
-        public void AddButton(string name, UnityAction onClick = null)
+        public void AddButton(string name, UnityEvent onClick = null)
         {
             buttons.Add(new ButtonData(name, onClick));
         }

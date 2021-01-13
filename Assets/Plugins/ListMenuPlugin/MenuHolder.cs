@@ -31,5 +31,23 @@ namespace ListMenuPlugin
                 (target as MenuHolder).menu.menues.Remove((target as MenuHolder).menu.menues[(target as MenuHolder).menu.menues.Count -1]);
             }
         }
+        void DrawMenu(Menu menu)
+        {
+            foreach (var menuData in menu.menues)
+            {
+                DrawMenuData(menuData);
+            }
+        }
+        void DrawMenuData(MenuData menuData)
+        {
+            foreach (var buttonData in menuData.buttons)
+            {
+                DrawButtonData(buttonData);
+            }
+        }
+        void DrawButtonData(ButtonData buttonData)
+        {
+
+        }
     }
 }

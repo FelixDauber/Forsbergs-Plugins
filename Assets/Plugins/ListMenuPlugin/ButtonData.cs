@@ -13,11 +13,11 @@ namespace ListMenuPlugin
         public UnityEvent onClick = new UnityEvent();
 
         //Constructor
-        public ButtonData(string name = "New Button", UnityAction onClick = null)
+        public ButtonData(string name = "New Button", UnityEvent onClick = null)
         {
             buttonName = name;
             if (onClick != null)
-                this.onClick.AddListener(onClick);
+                this.onClick = onClick;
         }
     }
 }
