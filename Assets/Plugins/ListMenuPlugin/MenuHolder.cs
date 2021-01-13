@@ -10,6 +10,10 @@ namespace ListMenuPlugin
     public class MenuHolder : MonoBehaviour
     {
         public Menu menu;
+        public void SetCurrentMenu(string name)
+        {
+            menu.SetCurrentMenu(name);
+        }
     }
     [CustomEditor(typeof(MenuHolder))]
     public class MenuHolderEditor : Editor
@@ -17,11 +21,15 @@ namespace ListMenuPlugin
         public override void OnInspectorGUI()
         {
             DrawDefaultInspector();
-            //GUILayout.Space(10);
-            //if (GUILayout.Button("AddButton"))
-            //{
-            //    (target as Menu).CreateMenu();
-            //}
+            GUILayout.Space(10);
+            if (GUILayout.Button("Add Menu"))
+            {
+                (target as MenuHolder).menu.NewMenu();
+            }
+            if (GUILayout.Button("Remove Menu"))
+            {
+                (target as MenuHolder).menu.menues.Remove((target as MenuHolder).menu.menues[(target as MenuHolder).menu.menues.Count -1]);
+            }
         }
     }
 }

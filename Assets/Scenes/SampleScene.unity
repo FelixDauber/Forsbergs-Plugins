@@ -185,7 +185,19 @@ MonoBehaviour:
       - buttonName: Settings
         onClick:
           m_PersistentCalls:
-            m_Calls: []
+            m_Calls:
+            - m_Target: {fileID: 647734494}
+              m_TargetAssemblyTypeName: ListMenuPlugin.MenuHolder, Assembly-CSharp-firstpass
+              m_MethodName: SetCurrentMenu
+              m_Mode: 5
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: Settings
+                m_BoolArgument: 0
+              m_CallState: 2
       - buttonName: Quit
         onClick:
           m_PersistentCalls:
@@ -201,6 +213,28 @@ MonoBehaviour:
           m_PersistentCalls:
             m_Calls: []
       - buttonName: Controls
+        onClick:
+          m_PersistentCalls:
+            m_Calls: []
+      - buttonName: Back
+        onClick:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 647734494}
+              m_TargetAssemblyTypeName: ListMenuPlugin.MenuHolder, Assembly-CSharp-firstpass
+              m_MethodName: SetCurrentMenu
+              m_Mode: 5
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: Main Menu
+                m_BoolArgument: 0
+              m_CallState: 2
+    - menuName: 
+      buttons:
+      - buttonName: Back
         onClick:
           m_PersistentCalls:
             m_Calls: []
