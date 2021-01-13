@@ -135,6 +135,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d4fdc766694e64f83fa643d1211687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onClick:
+    m_PersistentCalls:
+      m_Calls: []
   label: {fileID: 7898651654274082358}
 --- !u!114 &349222782605322915
 MonoBehaviour:
