@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace Plugins.ListMenuPlugin {
     public class MenuSpawner : MonoBehaviour {
+        public Transform menuFrame;
         public GameObject menuPanelPrefab;
         public GameObject buttonPrefab;
-        public List<GameObject> menus;
         GameObject currentMenuPanel;
 
         void Start() {
@@ -33,6 +33,7 @@ namespace Plugins.ListMenuPlugin {
                 Destroy(currentMenuPanel);
                 var menuPanel = CreateMenuPanel(currentMenu);
                 currentMenuPanel = menuPanel;
+                currentMenuPanel.transform.SetParent(menuFrame);
                 CreateButtons(currentMenu, menuPanel);
             }
         }
@@ -40,7 +41,6 @@ namespace Plugins.ListMenuPlugin {
         GameObject CreateMenuPanel(MenuData menuData) {
             var menuPanel = Instantiate(menuPanelPrefab, transform);
             menuPanel.name = menuData.menuName;
-            menus.Add(menuPanel);
             return menuPanel;
         }
 
@@ -51,26 +51,8 @@ namespace Plugins.ListMenuPlugin {
                 buttonObject.SetUp(buttonData, menuPanel.transform);
             }
         }
-        
-        void CreateMenus() {
-            var menu = GetComponent<MenuHolder>().menu;
-            
-            foreach (var menuData in menu.menues) {
-                var menuPanel = CreateMenuPanel(menuData);
-                CreateButtons(menuData, menuPanel);
-            }
-        }
 
-        void UpdateMenus() {
-            var menu = GetComponent<MenuHolder>().menu;
-            foreach (var menuPanel in menus) {
-                menuPanel.SetActive(menuPanel.name == menu.currentMenu.menuName);
-            }
-        }
-        
         void ChangeCurrentMenu_InputForTesting() {
-            var menu = GetComponent<MenuHolder>().menu;
-
             if (Input.GetKeyDown(KeyCode.Alpha1)) {
                 SetCurrentMenu(0);
             }
@@ -82,8 +64,8 @@ namespace Plugins.ListMenuPlugin {
             }
             
             void SetCurrentMenu(int index) {
+                var menu = GetComponent<MenuHolder>().menu;
                 menu.SetCurrentMenu(menu.menues[index].menuName);
-                //CreateCurrentMenu();
             }
         }
     }

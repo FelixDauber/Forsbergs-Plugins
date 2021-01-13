@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Plugins.ListMenuPlugin {
     public class ButtonObject : MonoBehaviour {
-        public UnityEvent onClick = new UnityEvent();
+        UnityEvent onClick = new UnityEvent();
         public Text label;
         
         public void SetUp(ButtonData buttonData, Transform parent) {
