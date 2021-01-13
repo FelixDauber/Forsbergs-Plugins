@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 namespace ListMenuPlugin
 {
@@ -20,6 +21,22 @@ namespace ListMenuPlugin
         {
             currentMenu = GetMenu(menuName);
         }
+        public void ReturnToRootMenu()
+        {
+            currentMenu = menues[0];
+        }
+
+        public MenuData NewMenu()
+        {
+            //Create new menu
+            MenuData newMenu = new MenuData(this);
+
+            //Add to list
+            menues.Add(newMenu);
+
+            //Return if needed by exterior scripts
+            return newMenu;
+        }
         public MenuData GetMenu(string menuName)
         {
             foreach (var menu in menues)
@@ -30,6 +47,10 @@ namespace ListMenuPlugin
                 }
             }
             throw new System.Exception($"Error menuData with name: {menuName} does not exist in menu");
+        }
+        public void RemoveMenu(string menuName)
+        {
+            menues.Remove(GetMenu(menuName));
         }
     }
 }
