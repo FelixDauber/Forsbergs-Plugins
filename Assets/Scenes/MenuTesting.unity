@@ -514,7 +514,7 @@ MonoBehaviour:
       menuName: 
       buttons: []
     menues:
-    - menuName: 1
+    - menuName: Menu_1
       buttons:
       - buttonName: A
         onClick:
@@ -528,7 +528,7 @@ MonoBehaviour:
         onClick:
           m_PersistentCalls:
             m_Calls: []
-    - menuName: 2
+    - menuName: Menu_2
       buttons:
       - buttonName: D
         onClick:
@@ -542,7 +542,7 @@ MonoBehaviour:
         onClick:
           m_PersistentCalls:
             m_Calls: []
-    - menuName: 3
+    - menuName: Menu_3
       buttons:
       - buttonName: G
         onClick:
@@ -568,5 +568,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5800df1f945697f4087a23decf376525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuPrefab: {fileID: 6772579566534731005, guid: b1c88bfd9bcba7849964f48c3796b672, type: 3}
+  menuPanelPrefab: {fileID: 6772579566534731005, guid: b1c88bfd9bcba7849964f48c3796b672, type: 3}
   buttonPrefab: {fileID: 8402656164895471715, guid: 58b5fc1b0c32f2a42a6b8148ff52dff2, type: 3}
+  menus: []
