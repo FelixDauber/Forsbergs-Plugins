@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using ListMenuPlugin;
 using UnityEngine;
@@ -8,11 +9,17 @@ namespace Plugins.ListMenuPlugin {
         public GameObject buttonPrefab;
         public List<GameObject> menus;
         GameObject currentMenuPanel;
-        
+
         void Start() {
             var menu = GetComponent<MenuHolder>().menu;
             menu.SetCurrentMenu(menu.menues[0].menuName);
             CreateCurrentMenu();
+            menu.onCurrentMenuChange.AddListener(CreateCurrentMenu);
+        }
+
+        void OnDestroy() {
+            var menu = GetComponent<MenuHolder>().menu;
+            menu.onCurrentMenuChange.RemoveListener(CreateCurrentMenu);
         }
 
         void Update() {
@@ -76,7 +83,7 @@ namespace Plugins.ListMenuPlugin {
             
             void SetCurrentMenu(int index) {
                 menu.SetCurrentMenu(menu.menues[index].menuName);
-                CreateCurrentMenu();
+                //CreateCurrentMenu();
             }
         }
     }

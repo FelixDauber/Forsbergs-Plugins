@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEditor.Timeline.Actions;
+using UnityEngine.Events;
 
 namespace ListMenuPlugin
 {
@@ -11,15 +13,16 @@ namespace ListMenuPlugin
     {
         public MenuData currentMenu;
         public List<MenuData> menues = new List<MenuData>();
+        public UnityEvent onCurrentMenuChange;
 
         public void Setup()
         {
             if (menues.Count > 0)
                 currentMenu = menues[0];
         }
-        public void SetCurrentMenu(string menuName)
-        {
+        public void SetCurrentMenu(string menuName) {
             currentMenu = GetMenu(menuName);
+            onCurrentMenuChange.Invoke();
         }
         public void ReturnToRootMenu()
         {
