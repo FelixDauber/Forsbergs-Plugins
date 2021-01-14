@@ -38,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -17.100037, y: -21.5}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2886751979122786859
 CanvasRenderer:
@@ -105,7 +105,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu:
-    menus: []
+    menus:
+    - menuName: Root
+      buttons: []
+    - menuName: Menu 1
+      buttons:
+      - buttonName: Back
+        onClick:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 6000499044674785788}
+              m_TargetAssemblyTypeName: Plugins.ListMenuPlugin.Scripts.MenuHolder,
+                Assembly-CSharp-firstpass
+              m_MethodName: ReturnToRootMenu
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: 
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+    - menuName: Menu 2
+      buttons:
+      - buttonName: Back
+        onClick:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 6000499044674785788}
+              m_TargetAssemblyTypeName: Plugins.ListMenuPlugin.Scripts.MenuHolder,
+                Assembly-CSharp-firstpass
+              m_MethodName: ReturnToRootMenu
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: 
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
     onCurrentMenuChange:
       m_PersistentCalls:
         m_Calls: []
@@ -116,7 +156,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6000499044674785788}
-        m_TargetAssemblyTypeName: ListMenuPlugin.MenuHolder, Assembly-CSharp-firstpass
+        m_TargetAssemblyTypeName: Plugins.ListMenuPlugin.Scripts.MenuHolder, Assembly-CSharp-firstpass
         m_MethodName: SetCurrentMenu
         m_Mode: 5
         m_Arguments:
@@ -124,7 +164,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Settings
+          m_StringArgument: Menu 2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &5460147838155217805
