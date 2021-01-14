@@ -75,26 +75,28 @@ namespace Plugins.ListMenuPlugin.Scripts
     [CustomEditor(typeof(MenuHolder))]
     public class MenuHolderEditor : Editor
     {
-        Menu menu;
+        SerializedProperty menu;
+        MenuHolder menuHolderTarget;
         public void OnEnable()
         {
             //menu = serializedObject.targetObject as Menu;
+            menuHolderTarget = (target as MenuHolder);
+            menu = serializedObject.FindProperty("menu").FindPropertyRelative("menus");
         }
         public override void OnInspectorGUI()
         {
-            DrawDefaultInspector();
+            //DrawDefaultInspector();
 
-            MenuHolder menuHolderTarget = (target as MenuHolder);
 
             //EditorGUILayout.PropertyField(serializedObject.FindProperty("menu")); //Don't to it like this... /F
-            //EditorGUILayout.PropertyField(menu);
+            EditorGUILayout.PropertyField(menu);
 
             //serializedObject.Update();
 
             //DrawMenu(menu as Menu);
 
             GUILayout.Space(10);
-            if (GUILayout.Button("Add Menu"))
+            if (GUILayout.Button("New Menu"))
             {
                 MenuData newMenu;
                 if (menuHolderTarget.menu.menus.Count == 0)
