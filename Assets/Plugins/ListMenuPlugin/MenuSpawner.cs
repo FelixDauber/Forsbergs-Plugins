@@ -1,71 +1,44 @@
-using System;
 using System.Collections.Generic;
 using ListMenuPlugin;
 using UnityEngine;
 
 namespace Plugins.ListMenuPlugin {
     public class MenuSpawner : MonoBehaviour {
-        public Transform menuFrame;
-        public GameObject menuPanelPrefab;
+        public GameObject menuFrame;
         public GameObject buttonPrefab;
         GameObject currentMenuPanel;
+        List<GameObject> currentButtons = new List<GameObject>();
 
         void Start() {
             var menu = GetComponent<MenuHolder>().menu;
-            menu.SetCurrentMenu(menu.menus[0].menuName);
-            CreateCurrentMenu();
-            menu.onCurrentMenuChange.AddListener(CreateCurrentMenu);
+            menu.SetCurrentMenu(menu.menues[0].menuName); //TODO set default menu in Menu.cs
+            CreateCurrentButtons();
+            menu.onCurrentMenuChange.AddListener(CreateCurrentButtons);
         }
 
         void OnDestroy() {
             var menu = GetComponent<MenuHolder>().menu;
-            menu.onCurrentMenuChange.RemoveListener(CreateCurrentMenu);
+            menu.onCurrentMenuChange.RemoveListener(CreateCurrentButtons);
         }
 
-        void Update() {
-            ChangeCurrentMenu_InputForTesting();
-        }
-        
-        void CreateCurrentMenu() {
+        void CreateCurrentButtons() {
             var currentMenu = GetComponent<MenuHolder>().menu.currentMenu;
-            
+
             if (currentMenu != null) {
-                Destroy(currentMenuPanel);
-                var menuPanel = CreateMenuPanel(currentMenu);
-                currentMenuPanel = menuPanel;
-                currentMenuPanel.transform.SetParent(menuFrame);
-                CreateButtons(currentMenu, menuPanel);
+                foreach (var button in currentButtons) {
+                    Destroy(button);
+                }
+                currentButtons = new List<GameObject>();
+                CreateButtons(currentMenu, menuFrame);
             }
         }
 
-        GameObject CreateMenuPanel(MenuData menuData) {
-            var menuPanel = Instantiate(menuPanelPrefab, transform);
-            menuPanel.name = menuData.menuName;
-            return menuPanel;
-        }
-
-        void CreateButtons(MenuData menuData, GameObject menuPanel) {
+        void CreateButtons(MenuData menuData, GameObject menuFrame) {
             foreach (var buttonData in menuData.buttons) {
                 var button = Instantiate(buttonPrefab, transform);
+                currentButtons.Add(button);
                 var buttonObject = button.GetComponent<ButtonObject>();
-                buttonObject.SetUp(buttonData, menuPanel.transform);
-            }
-        }
-
-        void ChangeCurrentMenu_InputForTesting() {
-            if (Input.GetKeyDown(KeyCode.Alpha1)) {
-                SetCurrentMenu(0);
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha2)) {
-                SetCurrentMenu(1);
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha3)) {
-                SetCurrentMenu(2);
-            }
-            
-            void SetCurrentMenu(int index) {
-                var menu = GetComponent<MenuHolder>().menu;
-                menu.SetCurrentMenu(menu.menus[index].menuName);
+                buttonObject.SetUp(buttonData, menuFrame.transform);
             }
         }
     }
