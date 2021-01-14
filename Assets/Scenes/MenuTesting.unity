@@ -578,7 +578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6407582862141234813, guid: 4f582ecb468a62746ad7f679cc0a96b2, type: 3}
       propertyPath: m_Name
-      value: MenuFrameDemo (1)
+      value: MenuFrameDemo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f582ecb468a62746ad7f679cc0a96b2, type: 3}
