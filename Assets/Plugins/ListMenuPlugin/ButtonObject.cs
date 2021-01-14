@@ -22,13 +22,5 @@ namespace Plugins.ListMenuPlugin {
         public void invokeOnClick() {
             onClick.Invoke();
         }
-
-        void Start() {
-            onClick?.AddListener(DebugEvent);
-        }
-
-        void DebugEvent() {
-            Debug.Log(name + ": onClick invoked");
-        }
     }
 }

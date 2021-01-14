@@ -13,11 +13,13 @@ namespace ListMenuPlugin
         public UnityEvent onClick = new UnityEvent();
 
         //Constructor
-        public ButtonData(string name = "New Button", UnityEvent onClick = null)
+        public ButtonData(string name = "New Button")
         {
             buttonName = name;
-            if (onClick != null)
-                this.onClick = onClick;
         }
+        //void SetUp(UnityAction onClick, string name)
+        //{
+        //    UnityEditor.Events.UnityEventTools.AddVoidPersistentListener(this.onClick, onClick); //Event needs to be directly on a unity object? / Cannot save to a temporary unity event?
+        //}
     }
 }
