@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5339002914404508467}
   - component: {fileID: 6000499044674785788}
   - component: {fileID: 5460147838155217805}
+  - component: {fileID: 6272433427159554933}
   m_Layer: 0
   m_Name: Menu
   m_TagString: Untagged
@@ -193,3 +194,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &6272433427159554933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6407582862141234813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1b2e2d25979b854aa8a11451d6a9f72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: ButtonSound
+    clip: {fileID: 8300000, guid: 5488401fda00c0c4ab275a648ee22f05, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
