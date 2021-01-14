@@ -15,6 +15,12 @@ namespace ListMenuPlugin
         public List<MenuData> menus = new List<MenuData>();
         //TODO decide if this Event should be visible in the inspector
         [HideInInspector] public UnityEvent onCurrentMenuChange;
+        [HideInInspector] public UnityEvent<string> onButtonClick;
+
+        public void PlaySound(string soundName = "")
+        {
+            onButtonClick.Invoke("ButtonSound");
+        }
 
         public void Setup()
         {
