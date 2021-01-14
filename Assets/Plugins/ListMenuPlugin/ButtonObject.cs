@@ -19,8 +19,16 @@ namespace Plugins.ListMenuPlugin {
             }
         }
 
-        public void invokeOnClick() {
+        public void InvokeOnClick() {
             onClick.Invoke();
+        }
+
+        public void PlaySound() {
+            GetComponentInParent<MenuHolder>().menu.PlaySound();
+        }
+
+        public void DebugButton() {
+            Debug.Log(name + ": Clicked");
         }
     }
 }
