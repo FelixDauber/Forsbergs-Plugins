@@ -5,28 +5,34 @@ using UnityEngine.UI;
 namespace Plugins.ListMenuPlugin.Scripts {
     public class MenuSpawner : MonoBehaviour {
         public bool disableImageOnPlay;
-        public GameObject buttonPrefab;
-        List<GameObject> currentButtons = new List<GameObject>();
+        public ButtonObject buttonPrefab;
+        List<ButtonObject> currentButtons = new List<ButtonObject>();
+        private Menu menuHolder;
 
+        private void Awake()
+        {
+            menuHolder = GetComponent<Menu>();
+        }
         void Start() {
             GetComponent<Image>().enabled = !disableImageOnPlay;
-            var menu = GetComponent<MenuHolder>().menu;
-            CreateCurrentButtons(menu.menus[0]);
-            menu.onCurrentMenuChange.AddListener(CreateCurrentButtons);
+            if (menuHolder.Menus.Count > 0)
+            {
+                CreateCurrentButtons(menuHolder.Menus[0]);
+            }
+            menuHolder.onCurrentMenuChange.AddListener(CreateCurrentButtons);
         }
 
         void OnDestroy() {
-            var menu = GetComponent<MenuHolder>().menu;
-            menu.onCurrentMenuChange.RemoveListener(CreateCurrentButtons);
+            menuHolder.onCurrentMenuChange.RemoveListener(CreateCurrentButtons);
         }
 
         void CreateCurrentButtons(MenuData menuHolder) {
 
             if (menuHolder != null) {
                 foreach (var button in currentButtons) {
-                    Destroy(button);
+                    Destroy(button.gameObject);
                 }
-                currentButtons = new List<GameObject>();
+                currentButtons = new List<ButtonObject>();
                 CreateButtons(menuHolder);
             }
         }
@@ -36,7 +42,7 @@ namespace Plugins.ListMenuPlugin.Scripts {
                 var button = Instantiate(buttonPrefab, transform);
                 currentButtons.Add(button);
                 var buttonObject = button.GetComponent<ButtonObject>();
-                buttonObject.SetUp(buttonData, transform);
+                buttonObject.SetUp(buttonData, menuHolder);
             }
         }
     }

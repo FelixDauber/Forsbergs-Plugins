@@ -9,16 +9,6 @@ namespace Plugins.ListMenuPlugin.Scripts
         public string menuName;
         public List<ButtonData> buttons = new List<ButtonData>();
 
-        public MenuData(Menu menu = null)
-        {
-            //Add a return button if this isn't the root menu...
-            if (menu != null)
-            {
-                //Debug.Log("Adding button for " + menu);
-                //AddButton("Back", delegate { menu.ReturnToRootMenu(); });
-            }
-        }
-
         public ButtonData AddButton(string name)
         {
             ButtonData newButton = new ButtonData(name);

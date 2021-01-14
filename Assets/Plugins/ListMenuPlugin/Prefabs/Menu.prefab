@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableImageOnPlay: 1
-  buttonPrefab: {fileID: 9050526480922816440, guid: 21386d048af129041a19725b28306383, type: 3}
+  buttonPrefab: {fileID: 538707042174723097, guid: 21386d048af129041a19725b28306383, type: 3}
 --- !u!114 &6000499044674785788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,14 +105,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8743161d6515a045aaffaf056d970b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menu:
-    menus: []
-    onCurrentMenuChange:
-      m_PersistentCalls:
-        m_Calls: []
-    onButtonClick:
-      m_PersistentCalls:
-        m_Calls: []
+  menus: []
+  onCurrentMenuChange:
+    m_PersistentCalls:
+      m_Calls: []
+  playSoundOnClick:
+    m_PersistentCalls:
+      m_Calls: []
   unityEvent:
     m_PersistentCalls:
       m_Calls:

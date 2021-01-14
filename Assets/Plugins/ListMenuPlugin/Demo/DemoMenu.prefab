@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableImageOnPlay: 1
-  buttonPrefab: {fileID: 9050526480922816440, guid: 21386d048af129041a19725b28306383, type: 3}
+  buttonPrefab: {fileID: 538707042174723097, guid: 21386d048af129041a19725b28306383, type: 3}
 --- !u!114 &6000499044674785788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,113 +105,112 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8743161d6515a045aaffaf056d970b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menu:
-    menus:
-    - menuName: MainMenu
-      buttons:
-      - buttonName: Play
-        onClick:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 6000499044674785788}
-              m_TargetAssemblyTypeName: ListMenuPlugin.MenuHolder, Assembly-CSharp-firstpass
-              m_MethodName: SetCurrentMenu
-              m_Mode: 5
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: 
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: Play
-                m_BoolArgument: 0
-              m_CallState: 2
-      - buttonName: Settings
-        onClick:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 6000499044674785788}
-              m_TargetAssemblyTypeName: ListMenuPlugin.MenuHolder, Assembly-CSharp-firstpass
-              m_MethodName: SetCurrentMenu
-              m_Mode: 5
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: 
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: Settings
-                m_BoolArgument: 0
-              m_CallState: 2
-      - buttonName: Exit
-        onClick:
-          m_PersistentCalls:
-            m_Calls: []
-    - menuName: Play
-      buttons:
-      - buttonName: Online
-        onClick:
-          m_PersistentCalls:
-            m_Calls: []
-      - buttonName: Local
-        onClick:
-          m_PersistentCalls:
-            m_Calls: []
-      - buttonName: Back
-        onClick:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 6000499044674785788}
-              m_TargetAssemblyTypeName: ListMenuPlugin.MenuHolder, Assembly-CSharp-firstpass
-              m_MethodName: ReturnToRootMenu
-              m_Mode: 1
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: 
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
-    - menuName: Settings
-      buttons:
-      - buttonName: Video
-        onClick:
-          m_PersistentCalls:
-            m_Calls: []
-      - buttonName: Audio
-        onClick:
-          m_PersistentCalls:
-            m_Calls: []
-      - buttonName: Input
-        onClick:
-          m_PersistentCalls:
-            m_Calls: []
-      - buttonName: Back
-        onClick:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 6000499044674785788}
-              m_TargetAssemblyTypeName: ListMenuPlugin.MenuHolder, Assembly-CSharp-firstpass
-              m_MethodName: ReturnToRootMenu
-              m_Mode: 1
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: 
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
-    onCurrentMenuChange:
-      m_PersistentCalls:
-        m_Calls: []
-    onButtonClick:
-      m_PersistentCalls:
-        m_Calls: []
+  menus:
+  - menuName: Root
+    buttons:
+    - buttonName: Play
+      onClick:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 6000499044674785788}
+            m_TargetAssemblyTypeName: Plugins.ListMenuPlugin.Scripts.MenuHolder,
+              Assembly-CSharp-firstpass
+            m_MethodName: SetCurrentMenu
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: 
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: Play
+              m_BoolArgument: 0
+            m_CallState: 2
+    - buttonName: Settings
+      onClick:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 6000499044674785788}
+            m_TargetAssemblyTypeName: Plugins.ListMenuPlugin.Scripts.MenuHolder,
+              Assembly-CSharp-firstpass
+            m_MethodName: SetCurrentMenu
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: 
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: Settings
+              m_BoolArgument: 0
+            m_CallState: 2
+    - buttonName: Quit
+      onClick:
+        m_PersistentCalls:
+          m_Calls: []
+  - menuName: Play
+    buttons:
+    - buttonName: SinglePlayer
+      onClick:
+        m_PersistentCalls:
+          m_Calls: []
+    - buttonName: MultiPlayer
+      onClick:
+        m_PersistentCalls:
+          m_Calls: []
+    - buttonName: Back
+      onClick:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 6000499044674785788}
+            m_TargetAssemblyTypeName: Plugins.ListMenuPlugin.Scripts.MenuHolder,
+              Assembly-CSharp-firstpass
+            m_MethodName: ReturnToRootMenu
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: 
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+  - menuName: Settings
+    buttons:
+    - buttonName: Audio
+      onClick:
+        m_PersistentCalls:
+          m_Calls: []
+    - buttonName: Graphics
+      onClick:
+        m_PersistentCalls:
+          m_Calls: []
+    - buttonName: Back
+      onClick:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 6000499044674785788}
+            m_TargetAssemblyTypeName: Plugins.ListMenuPlugin.Scripts.MenuHolder,
+              Assembly-CSharp-firstpass
+            m_MethodName: ReturnToRootMenu
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: 
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+  onCurrentMenuChange:
+    m_PersistentCalls:
+      m_Calls: []
+  playSoundOnClick:
+    m_PersistentCalls:
+      m_Calls: []
   unityEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6000499044674785788}
-        m_TargetAssemblyTypeName: ListMenuPlugin.MenuHolder, Assembly-CSharp-firstpass
+        m_TargetAssemblyTypeName: Plugins.ListMenuPlugin.Scripts.MenuHolder, Assembly-CSharp-firstpass
         m_MethodName: SetCurrentMenu
         m_Mode: 5
         m_Arguments:

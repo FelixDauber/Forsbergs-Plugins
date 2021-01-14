@@ -6,22 +6,36 @@ using Plugins.ListMenuPlugin.Scripts;
 
 public class AudioManager : MonoBehaviour
 {
-    //UnityEvent onButtonClick = new UnityEvent(); 
+    //UnityEvent onButtonClick = new UnityEvent();
     UnityEvent<string> onButtonClick;
     public Sound[] sounds;
+    private static AudioManager audioManager;
+
     void Awake()
     {
+        if(audioManager != null)
+        {
+            Debug.LogWarning("Found two menuAudioManagers, destroying one");
+            Destroy(this);
+        }
+        else
+        {
+            audioManager = this;
+        }
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
+            s.AudioSetup();
         }
     }
     
     public void Start()
     {
         //onButtonClick.AddListener(ButtonSound);
-        var menuHolder = GetComponent<MenuHolder>();
-        menuHolder.menu.onButtonClick.AddListener(Play);
+        foreach (var menu in FindObjectsOfType<Plugins.ListMenuPlugin.Scripts.Menu>())
+        {
+            menu.playSoundOnClick.AddListener(Play);
+        }
     }
     
     public void Play (string name)
