@@ -55,7 +55,7 @@ namespace ListMenuPlugin
             return menu.CreateButtonFor(menuName, buttonName);
         }
 
-        public MenuData AddNewMenu()
+        public MenuData AddNewMenu(bool includeBackButton = true)
         {
                         
             unityEvent = new UnityEvent();
@@ -83,6 +83,7 @@ namespace ListMenuPlugin
         {
             DrawDefaultInspector();
 
+            MenuHolder menuHolderTarget = (target as MenuHolder);
 
             //EditorGUILayout.PropertyField(serializedObject.FindProperty("menu")); //Don't to it like this... /F
             //EditorGUILayout.PropertyField(menu);
@@ -94,19 +95,28 @@ namespace ListMenuPlugin
             GUILayout.Space(10);
             if (GUILayout.Button("Add Menu"))
             {
-                MenuData newMenu = (target as MenuHolder).AddNewMenu();
-                //newMenu.menuName = 
+                MenuData newMenu;
+                if (menuHolderTarget.menu.menus.Count == 0)
+                {
+                    newMenu = menuHolderTarget.AddNewMenu(false);
+                }
+                else
+                {
+                    newMenu = menuHolderTarget.AddNewMenu();
+                }
+                newMenu.menuName = "Menu ";
+                newMenu.menuName += menuHolderTarget.menu.GetMenuIndex(newMenu.menuName);
             }
             if (GUILayout.Button("Remove Menu"))
             {
-                (target as MenuHolder).menu.menus[0].RemoveButton((target as MenuHolder).menu.menus[(target as MenuHolder).menu.menus.Count - 1].menuName);
-                (target as MenuHolder).menu.menus.Remove((target as MenuHolder).menu.menus[(target as MenuHolder).menu.menus.Count - 1]);
+                menuHolderTarget.menu.menus[0].RemoveButton(menuHolderTarget.menu.menus[menuHolderTarget.menu.menus.Count - 1].menuName);
+                menuHolderTarget.menu.menus.Remove(menuHolderTarget.menu.menus[menuHolderTarget.menu.menus.Count - 1]);
             }
-            if((target as MenuHolder).menu.menus.Count > 1)
+            if(menuHolderTarget.menu.menus.Count > 1)
                 if (GUILayout.Button("Add Menu Links To Root"))
                 {
                     if(target != null)
-                        (target as MenuHolder).AddMenuButtons();
+                        menuHolderTarget.AddMenuButtons();
                 }
 
             serializedObject.ApplyModifiedProperties();

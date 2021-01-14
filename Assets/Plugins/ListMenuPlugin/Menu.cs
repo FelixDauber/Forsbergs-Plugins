@@ -54,7 +54,7 @@ namespace ListMenuPlugin
         }
         public int GetMenuIndex(string menuName)
         {
-            for(int i = 0; i<menus.Count; i++)
+            for(int i = 0; i < menus.Count; i++)
             {            
                 if (menus[i].menuName == menuName)
                 {
