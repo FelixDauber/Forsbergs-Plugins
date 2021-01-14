@@ -54,18 +54,14 @@ namespace ListMenuPlugin
         }
         public int GetMenuIndex(string menuName)
         {
-            int i = 0;
-            foreach (var menu in menus)
-            {
-                
-                if (menu.menuName == menuName)
+            for(int i = 0; i<menus.Count; i++)
+            {            
+                if (menus[i].menuName == menuName)
                 {
                     return i;
                 }
-                i++;
             }
             throw new System.Exception($"Error menuData with name: {menuName} does not exist in menu");
-
         }
         public void RemoveMenu(string menuName)
         {
