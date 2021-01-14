@@ -1,10 +1,8 @@
-using System;
-using ListMenuPlugin;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace Plugins.ListMenuPlugin {
+namespace Plugins.ListMenuPlugin.Scripts {
     public class ButtonObject : MonoBehaviour {
         UnityEvent onClick = new UnityEvent();
         public Text label;

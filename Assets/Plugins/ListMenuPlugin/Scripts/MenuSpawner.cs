@@ -1,18 +1,17 @@
 using System.Collections.Generic;
-using ListMenuPlugin;
 using UnityEngine;
+using UnityEngine.UI;
 
-namespace Plugins.ListMenuPlugin {
+namespace Plugins.ListMenuPlugin.Scripts {
     public class MenuSpawner : MonoBehaviour {
-        public GameObject menuFrame;
+        public bool disableImageOnPlay;
         public GameObject buttonPrefab;
-        GameObject currentMenuPanel;
         List<GameObject> currentButtons = new List<GameObject>();
 
         void Start() {
+            GetComponent<Image>().enabled = !disableImageOnPlay;
             var menu = GetComponent<MenuHolder>().menu;
-            menu.SetCurrentMenu(menu.menus[0].menuName); //TODO set default menu in Menu.cs
-            CreateCurrentButtons();
+            CreateCurrentButtons(menu.menus[0]);
             menu.onCurrentMenuChange.AddListener(CreateCurrentButtons);
         }
 
@@ -21,24 +20,23 @@ namespace Plugins.ListMenuPlugin {
             menu.onCurrentMenuChange.RemoveListener(CreateCurrentButtons);
         }
 
-        void CreateCurrentButtons() {
-            var currentMenu = GetComponent<MenuHolder>().menu.currentMenu;
+        void CreateCurrentButtons(MenuData menuHolder) {
 
-            if (currentMenu != null) {
+            if (menuHolder != null) {
                 foreach (var button in currentButtons) {
                     Destroy(button);
                 }
                 currentButtons = new List<GameObject>();
-                CreateButtons(currentMenu, menuFrame);
+                CreateButtons(menuHolder);
             }
         }
 
-        void CreateButtons(MenuData menuData, GameObject menuFrame) {
+        void CreateButtons(MenuData menuData) {
             foreach (var buttonData in menuData.buttons) {
                 var button = Instantiate(buttonPrefab, transform);
                 currentButtons.Add(button);
                 var buttonObject = button.GetComponent<ButtonObject>();
-                buttonObject.SetUp(buttonData, menuFrame.transform);
+                buttonObject.SetUp(buttonData, transform);
             }
         }
     }

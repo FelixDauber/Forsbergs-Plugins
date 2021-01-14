@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2886751979122786859}
   - component: {fileID: 5222257131358978230}
   - component: {fileID: 5339002914404508467}
-  - component: {fileID: -1791098897226809994}
   - component: {fileID: 6000499044674785788}
   - component: {fileID: 5460147838155217805}
+  - component: {fileID: 6272433427159554933}
   m_Layer: 0
   m_Name: Menu
   m_TagString: Untagged
@@ -39,7 +39,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -17.100037, y: -21.5}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2886751979122786859
 CanvasRenderer:
@@ -91,21 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5800df1f945697f4087a23decf376525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuFrame: {fileID: 6407582862141234813}
-  buttonPrefab: {fileID: 9050526480922816440, guid: 21386d048af129041a19725b28306383, type: 3}
---- !u!114 &-1791098897226809994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6407582862141234813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 302530c4b53f32a4aa4df08c9c87f60e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   disableImageOnPlay: 1
+  buttonPrefab: {fileID: 9050526480922816440, guid: 21386d048af129041a19725b28306383, type: 3}
 --- !u!114 &6000499044674785788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,18 +106,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu:
-    currentMenu:
-      menuName: 
+    menus:
+    - menuName: Root
       buttons: []
-    menus: []
+    - menuName: Menu 1
+      buttons:
+      - buttonName: Back
+        onClick:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 6000499044674785788}
+              m_TargetAssemblyTypeName: Plugins.ListMenuPlugin.Scripts.MenuHolder,
+                Assembly-CSharp-firstpass
+              m_MethodName: ReturnToRootMenu
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: 
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+    - menuName: Menu 2
+      buttons:
+      - buttonName: Back
+        onClick:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 6000499044674785788}
+              m_TargetAssemblyTypeName: Plugins.ListMenuPlugin.Scripts.MenuHolder,
+                Assembly-CSharp-firstpass
+              m_MethodName: ReturnToRootMenu
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: 
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
     onCurrentMenuChange:
+      m_PersistentCalls:
+        m_Calls: []
+    onButtonClick:
       m_PersistentCalls:
         m_Calls: []
   unityEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6000499044674785788}
-        m_TargetAssemblyTypeName: ListMenuPlugin.MenuHolder, Assembly-CSharp-firstpass
+        m_TargetAssemblyTypeName: Plugins.ListMenuPlugin.Scripts.MenuHolder, Assembly-CSharp-firstpass
         m_MethodName: SetCurrentMenu
         m_Mode: 5
         m_Arguments:
@@ -138,7 +165,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Settings
+          m_StringArgument: Menu 2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &5460147838155217805
@@ -167,3 +194,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &6272433427159554933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6407582862141234813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1b2e2d25979b854aa8a11451d6a9f72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: ButtonSound
+    clip: {fileID: 8300000, guid: 5488401fda00c0c4ab275a648ee22f05, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}

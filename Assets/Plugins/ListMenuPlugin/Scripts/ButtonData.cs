@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.Events;
 
-namespace ListMenuPlugin
+namespace Plugins.ListMenuPlugin.Scripts
 {
     //Holds information about the button itself
     [System.Serializable]
