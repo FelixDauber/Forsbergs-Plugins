@@ -1,18 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
+using ListMenuPlugin;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEditor;
 
-namespace ListMenuPlugin
+namespace Plugins.ListMenuPlugin
 {
-    //Temporary so we can see the values.
     public class MenuHolder : MonoBehaviour
     {
         public Menu menu;
-
         [HideInInspector]
         public UnityEvent unityEvent = new UnityEvent();
+
+        void Awake() {
+            var menuName = menu.menus[0].menuName;
+            SetCurrentMenu(menuName);
+        }
+
         public void SetCurrentMenu(string name)
         {
             menu.SetCurrentMenu(name);

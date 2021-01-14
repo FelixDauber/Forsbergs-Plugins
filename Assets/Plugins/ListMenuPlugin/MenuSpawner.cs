@@ -11,7 +11,6 @@ namespace Plugins.ListMenuPlugin {
 
         void Start() {
             var menu = GetComponent<MenuHolder>().menu;
-            menu.SetCurrentMenu(menu.menus[0].menuName); //TODO set default menu in Menu.cs
             CreateCurrentButtons();
             menu.onCurrentMenuChange.AddListener(CreateCurrentButtons);
         }
