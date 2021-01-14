@@ -27,7 +27,7 @@ namespace ListMenuPlugin
         }
         public void ReturnToRootMenu()
         {
-            currentMenu = menues[0];
+            SetCurrentMenu(menues[0].menuName);
         }
 
         public MenuData NewMenu()
@@ -55,6 +55,11 @@ namespace ListMenuPlugin
         public void RemoveMenu(string menuName)
         {
             menues.Remove(GetMenu(menuName));
+        }
+
+        public ButtonData CreateButtonFor(string menuName, string buttonName)
+        {
+            return GetMenu(menuName).AddButton(buttonName);
         }
     }
 }

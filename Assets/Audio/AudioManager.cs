@@ -13,6 +13,9 @@ public class AudioManager : MonoBehaviour
             s.source.clip = s.clip;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
+
+            // Use this as the call command for the Button Sounds
+            // FindObjectOfType<AudioManager>().Play("Button1");
         }
     }
 

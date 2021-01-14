@@ -17,16 +17,16 @@ namespace ListMenuPlugin
             //Add a return button if this isn't the root menu...
             if (menu != null)
             {
-                Debug.Log("Adding button for " + menu);
-                UnityEvent newEvent = new UnityEvent();
-                newEvent.AddListener(delegate { menu.ReturnToRootMenu(); });
-                AddButton("Back", newEvent);
+                //Debug.Log("Adding button for " + menu);
+                //AddButton("Back", delegate { menu.ReturnToRootMenu(); });
             }
         }
 
-        public void AddButton(string name, UnityEvent onClick = null)
+        public ButtonData AddButton(string name)
         {
-            buttons.Add(new ButtonData(name, onClick));
+            ButtonData newButton = new ButtonData(name);
+            buttons.Add(newButton);
+            return newButton;
         }
         public ButtonData GetButton(string name)
         {
