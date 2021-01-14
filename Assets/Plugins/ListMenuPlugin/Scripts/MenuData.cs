@@ -1,10 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
-using Plugins.ListMenuPlugin;
-using UnityEngine;
-using UnityEngine.Events;
 
-namespace ListMenuPlugin
+namespace Plugins.ListMenuPlugin.Scripts
 {
     //Holds the different buttons
     [System.Serializable]

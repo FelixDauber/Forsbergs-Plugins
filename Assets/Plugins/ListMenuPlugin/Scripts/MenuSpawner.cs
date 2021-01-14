@@ -1,8 +1,7 @@
 using System.Collections.Generic;
-using ListMenuPlugin;
 using UnityEngine;
 
-namespace Plugins.ListMenuPlugin {
+namespace Plugins.ListMenuPlugin.Scripts {
     public class MenuSpawner : MonoBehaviour {
         public GameObject menuFrame;
         public GameObject buttonPrefab;

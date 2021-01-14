@@ -1,9 +1,8 @@
 using System.Collections.Generic;
-using ListMenuPlugin;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Plugins.ListMenuPlugin
+namespace Plugins.ListMenuPlugin.Scripts
 {
     //The core of the system, holds the different menues
     [System.Serializable]

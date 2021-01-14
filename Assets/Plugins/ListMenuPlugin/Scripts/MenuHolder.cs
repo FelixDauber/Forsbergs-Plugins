@@ -1,9 +1,8 @@
-using ListMenuPlugin;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Plugins.ListMenuPlugin
+namespace Plugins.ListMenuPlugin.Scripts
 {
     public class MenuHolder : MonoBehaviour
     {
