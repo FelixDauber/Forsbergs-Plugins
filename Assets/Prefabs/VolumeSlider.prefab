@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2810210712733593612}
   - component: {fileID: 2810210712733593615}
+  - component: {fileID: -8594704227888411406}
+  - component: {fileID: 731652308473921670}
+  - component: {fileID: 3359642442842655075}
   m_Layer: 5
   m_Name: VolumeSlider
   m_TagString: Untagged
@@ -90,6 +93,51 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-8594704227888411406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2810210712733593613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72674be7241f10f4f9c9f276e8f27955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeSlider: {fileID: 2810210712733593615}
+  audioManager: {fileID: 0}
+--- !u!114 &731652308473921670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2810210712733593613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1b2e2d25979b854aa8a11451d6a9f72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: random first thirst
+    clip: {fileID: 8300000, guid: 311ec0e3ddc71474eb5f91f03161f401, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+--- !u!114 &3359642442842655075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2810210712733593613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2bc3b477e7e9094e9fb74d30732123e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: random first thirst
 --- !u!1 &2810210713611439264
 GameObject:
   m_ObjectHideFlags: 0
