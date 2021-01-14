@@ -11,8 +11,7 @@ namespace Plugins.ListMenuPlugin.Scripts
         public UnityEvent unityEvent = new UnityEvent();
 
         void Awake() {
-            var menuName = menu.menus[0].menuName;
-            SetCurrentMenu(menuName);
+            menu.Setup();
         }
 
         public void SetCurrentMenu(string name)

@@ -8,10 +8,9 @@ namespace Plugins.ListMenuPlugin.Scripts
     [System.Serializable]
     public class Menu
     {
-        public MenuData currentMenu;
         public List<MenuData> menus = new List<MenuData>();
         //TODO decide if this Event should be visible in the inspector
-        [HideInInspector] public UnityEvent onCurrentMenuChange;
+        [HideInInspector] public UnityEvent<MenuData> onCurrentMenuChange;
         [HideInInspector] public UnityEvent<string> onButtonClick;
 
         public void PlaySound(string soundName = "")
@@ -21,12 +20,10 @@ namespace Plugins.ListMenuPlugin.Scripts
 
         public void Setup()
         {
-            if (menus.Count > 0)
-                currentMenu = menus[0];
+            onCurrentMenuChange.Invoke(menus[0]);
         }
         public void SetCurrentMenu(string menuName) {
-            currentMenu = GetMenu(menuName);
-            onCurrentMenuChange.Invoke();
+            onCurrentMenuChange.Invoke(GetMenu(menuName));
         }
         public void ReturnToRootMenu()
         {

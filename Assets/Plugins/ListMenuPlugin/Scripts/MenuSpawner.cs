@@ -5,12 +5,11 @@ namespace Plugins.ListMenuPlugin.Scripts {
     public class MenuSpawner : MonoBehaviour {
         public GameObject menuFrame;
         public GameObject buttonPrefab;
-        GameObject currentMenuPanel;
         List<GameObject> currentButtons = new List<GameObject>();
 
         void Start() {
             var menu = GetComponent<MenuHolder>().menu;
-            CreateCurrentButtons();
+            CreateCurrentButtons(menu.menus[0]);
             menu.onCurrentMenuChange.AddListener(CreateCurrentButtons);
         }
 
@@ -19,7 +18,7 @@ namespace Plugins.ListMenuPlugin.Scripts {
             menu.onCurrentMenuChange.RemoveListener(CreateCurrentButtons);
         }
 
-        void CreateCurrentButtons() {
+        void CreateCurrentButtons(MenuData menuHolder) {
             var currentMenu = GetComponent<MenuHolder>().menu.currentMenu;
 
             if (currentMenu != null) {
