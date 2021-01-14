@@ -14,7 +14,7 @@ public class AudioManager : MonoBehaviour
     {
         if(audioManager != null)
         {
-            Debug.LogWarning("Found two menuAudioManagers, destroying one");
+            Debug.LogWarning("Duplicate menuAudioManagers, destroying this one");
             Destroy(this);
         }
         else
