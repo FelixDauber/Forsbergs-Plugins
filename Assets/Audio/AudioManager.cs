@@ -6,7 +6,6 @@ using Plugins.ListMenuPlugin.Scripts;
 
 public class AudioManager : MonoBehaviour
 {
-    //UnityEvent onButtonClick = new UnityEvent();
     UnityEvent<string> onButtonClick;
     public Sound[] sounds;
     private static AudioManager audioManager;
@@ -39,18 +38,6 @@ public class AudioManager : MonoBehaviour
     }
     
     public void Play (string name)
-    {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        s.source.Play();
-    }
-    public void Update()
-    {
-        if (onButtonClick != null)
-        {
-            ButtonSound();
-        }
-    }
-    void ButtonSound()
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.Play();

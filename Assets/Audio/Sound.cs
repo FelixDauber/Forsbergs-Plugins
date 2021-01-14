@@ -4,8 +4,6 @@ using UnityEngine.Events;
 [System.Serializable]
 public class Sound
 {
-    UnityEvent ButtonSound = new UnityEvent();
-
     public string name;
     public AudioClip clip;
     [Range(0f, 1f)]
@@ -24,15 +22,6 @@ public class Sound
         source.name = name;
 
         // public float volume {get => volume; set => ;}
-        // ButtonSound
-        // Menu.event.AddListener(Play)
-
-        // Use this as the call command for the Button Sounds
-        // FindObjectOfType<AudioManager>().Play("Button1");
-}
-    public void Start()
-    {
-        ButtonSound.AddListener(AudioSetup);
     }
 }
 
