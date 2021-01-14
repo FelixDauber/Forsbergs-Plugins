@@ -12,7 +12,7 @@ namespace Plugins.ListMenuPlugin {
 
         void Start() {
             var menu = GetComponent<MenuHolder>().menu;
-            menu.SetCurrentMenu(menu.menues[0].menuName);
+            menu.SetCurrentMenu(menu.menus[0].menuName);
             CreateCurrentMenu();
             menu.onCurrentMenuChange.AddListener(CreateCurrentMenu);
         }
@@ -65,7 +65,7 @@ namespace Plugins.ListMenuPlugin {
             
             void SetCurrentMenu(int index) {
                 var menu = GetComponent<MenuHolder>().menu;
-                menu.SetCurrentMenu(menu.menues[index].menuName);
+                menu.SetCurrentMenu(menu.menus[index].menuName);
             }
         }
     }

@@ -12,14 +12,14 @@ namespace ListMenuPlugin
     public class Menu
     {
         public MenuData currentMenu;
-        public List<MenuData> menues = new List<MenuData>();
+        public List<MenuData> menus = new List<MenuData>();
         //TODO decide if this Event should be visible in the inspector
         [HideInInspector] public UnityEvent onCurrentMenuChange;
 
         public void Setup()
         {
-            if (menues.Count > 0)
-                currentMenu = menues[0];
+            if (menus.Count > 0)
+                currentMenu = menus[0];
         }
         public void SetCurrentMenu(string menuName) {
             currentMenu = GetMenu(menuName);
@@ -27,7 +27,7 @@ namespace ListMenuPlugin
         }
         public void ReturnToRootMenu()
         {
-            SetCurrentMenu(menues[0].menuName);
+            SetCurrentMenu(menus[0].menuName);
         }
 
         public MenuData NewMenu()
@@ -36,14 +36,14 @@ namespace ListMenuPlugin
             MenuData newMenu = new MenuData(this);
 
             //Add to list
-            menues.Add(newMenu);
+            menus.Add(newMenu);
 
             //Return if needed by exterior scripts
             return newMenu;
         }
         public MenuData GetMenu(string menuName)
         {
-            foreach (var menu in menues)
+            foreach (var menu in menus)
             {
                 if (menu.menuName == menuName)
                 {
@@ -52,14 +52,19 @@ namespace ListMenuPlugin
             }
             throw new System.Exception($"Error menuData with name: {menuName} does not exist in menu");
         }
+        public int GetMenuIndex(string menuName)
+        {
+            return 0;
+        }
         public void RemoveMenu(string menuName)
         {
-            menues.Remove(GetMenu(menuName));
+            menus.Remove(GetMenu(menuName));
         }
 
         public ButtonData CreateButtonFor(string menuName, string buttonName)
         {
             return GetMenu(menuName).AddButton(buttonName);
         }
+
     }
 }

@@ -25,11 +25,11 @@ namespace ListMenuPlugin
         [ContextMenu("AddMenuButtons")]
         public void AddMenuButtons()
         {
-            foreach (var menu in menu.menues)
+            foreach (var menu in menu.menus)
             {
-                if (this.menu.menues[0].menuName != menu.menuName && this.menu.menues[0].GetButton(menu.menuName) == null)
+                if (this.menu.menus[0].menuName != menu.menuName && this.menu.menus[0].GetButton(menu.menuName) == null)
                 {
-                    AddButton(menu, this.menu.CreateButtonFor(this.menu.menues[0].menuName, menu.menuName));
+                    AddButton(menu, this.menu.CreateButtonFor(this.menu.menus[0].menuName, menu.menuName));
                 }
             }
         }
@@ -43,7 +43,7 @@ namespace ListMenuPlugin
             //ButtonData newButton = this.menu.CreateButtonFor(this.menu.menues[0].menuName, menu.menuName);
 
             UnityAction<string> action = new UnityAction<string>(SetCurrentMenu);
-            Debug.Log(action);
+            //Debug.Log(action);
             UnityEditor.Events.UnityEventTools.AddStringPersistentListener(unityEvent, action, menu.menuName);
 
             //UnityEditor.Events.UnityEventTools.AddObjectPersistentListener(unityEvent, delegate { SetCurrentMenu(menu.menuName); }, gameObject);
@@ -55,7 +55,7 @@ namespace ListMenuPlugin
             return menu.CreateButtonFor(menuName, buttonName);
         }
 
-        public void AddNewMenu()
+        public MenuData AddNewMenu()
         {
                         
             unityEvent = new UnityEvent();
@@ -67,6 +67,7 @@ namespace ListMenuPlugin
             ButtonData newButton = newMenu.AddButton("Back");
 
             newButton.onClick = unityEvent;
+            return newMenu;
         }
     }
 
@@ -93,17 +94,20 @@ namespace ListMenuPlugin
             GUILayout.Space(10);
             if (GUILayout.Button("Add Menu"))
             {
-                (target as MenuHolder).AddNewMenu();
+                MenuData newMenu = (target as MenuHolder).AddNewMenu();
+                //newMenu.menuName = 
             }
             if (GUILayout.Button("Remove Menu"))
             {
-                (target as MenuHolder).menu.menues.Remove((target as MenuHolder).menu.menues[(target as MenuHolder).menu.menues.Count - 1]);
+                (target as MenuHolder).menu.menus[0].RemoveButton((target as MenuHolder).menu.menus[(target as MenuHolder).menu.menus.Count - 1].menuName);
+                (target as MenuHolder).menu.menus.Remove((target as MenuHolder).menu.menus[(target as MenuHolder).menu.menus.Count - 1]);
             }
-            if (GUILayout.Button("Add Menu Buttons"))
-            {
-                if(target != null)
-                    (target as MenuHolder).AddMenuButtons();
-            }
+            if((target as MenuHolder).menu.menus.Count > 1)
+                if (GUILayout.Button("Add Menu Links To Root"))
+                {
+                    if(target != null)
+                        (target as MenuHolder).AddMenuButtons();
+                }
 
             serializedObject.ApplyModifiedProperties();
         }
