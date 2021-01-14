@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2886751979122786859}
   - component: {fileID: 5222257131358978230}
   - component: {fileID: 5339002914404508467}
-  - component: {fileID: -1791098897226809994}
   - component: {fileID: 6000499044674785788}
   - component: {fileID: 5460147838155217805}
   m_Layer: 0
@@ -91,21 +90,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5800df1f945697f4087a23decf376525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuFrame: {fileID: 6407582862141234813}
-  buttonPrefab: {fileID: 9050526480922816440, guid: 21386d048af129041a19725b28306383, type: 3}
---- !u!114 &-1791098897226809994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6407582862141234813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 302530c4b53f32a4aa4df08c9c87f60e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   disableImageOnPlay: 1
+  buttonPrefab: {fileID: 9050526480922816440, guid: 21386d048af129041a19725b28306383, type: 3}
 --- !u!114 &6000499044674785788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,11 +105,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu:
-    currentMenu:
-      menuName: 
-      buttons: []
     menus: []
     onCurrentMenuChange:
+      m_PersistentCalls:
+        m_Calls: []
+    onButtonClick:
       m_PersistentCalls:
         m_Calls: []
   unityEvent:

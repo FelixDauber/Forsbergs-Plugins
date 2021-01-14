@@ -1,13 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Plugins.ListMenuPlugin.Scripts {
     public class MenuSpawner : MonoBehaviour {
-        public GameObject menuFrame;
+        public bool disableImageOnPlay;
         public GameObject buttonPrefab;
         List<GameObject> currentButtons = new List<GameObject>();
 
         void Start() {
+            GetComponent<Image>().enabled = !disableImageOnPlay;
             var menu = GetComponent<MenuHolder>().menu;
             CreateCurrentButtons(menu.menus[0]);
             menu.onCurrentMenuChange.AddListener(CreateCurrentButtons);
@@ -25,16 +27,16 @@ namespace Plugins.ListMenuPlugin.Scripts {
                     Destroy(button);
                 }
                 currentButtons = new List<GameObject>();
-                CreateButtons(menuHolder, menuFrame);
+                CreateButtons(menuHolder);
             }
         }
 
-        void CreateButtons(MenuData menuData, GameObject menuFrame) {
+        void CreateButtons(MenuData menuData) {
             foreach (var buttonData in menuData.buttons) {
                 var button = Instantiate(buttonPrefab, transform);
                 currentButtons.Add(button);
                 var buttonObject = button.GetComponent<ButtonObject>();
-                buttonObject.SetUp(buttonData, menuFrame.transform);
+                buttonObject.SetUp(buttonData, transform);
             }
         }
     }

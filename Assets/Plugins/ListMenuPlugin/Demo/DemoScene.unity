@@ -624,6 +624,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2073052466}
     m_Modifications:
+    - target: {fileID: 5222257131358978230, guid: 4f582ecb468a62746ad7f679cc0a96b2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6000499044674785788, guid: 4f582ecb468a62746ad7f679cc0a96b2, type: 3}
       propertyPath: menu.menus.Array.size
       value: 4
