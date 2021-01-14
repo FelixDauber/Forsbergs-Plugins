@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6000499044674785788}
   - component: {fileID: 5460147838155217805}
   m_Layer: 0
-  m_Name: MenuFrame
+  m_Name: MenuFrameDemo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,8 +122,8 @@ MonoBehaviour:
     currentMenu:
       menuName: 
       buttons: []
-    menues:
-    - menuName: Main
+    menus:
+    - menuName: MainMenu
       buttons:
       - buttonName: Play
         onClick:
@@ -157,22 +157,10 @@ MonoBehaviour:
                 m_StringArgument: Settings
                 m_BoolArgument: 0
               m_CallState: 2
-      - buttonName: Back
+      - buttonName: Exit
         onClick:
           m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 6000499044674785788}
-              m_TargetAssemblyTypeName: ListMenuPlugin.MenuHolder, Assembly-CSharp-firstpass
-              m_MethodName: ReturnToRootMenu
-              m_Mode: 1
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: Settings
-                m_BoolArgument: 0
-              m_CallState: 2
+            m_Calls: []
     - menuName: Play
       buttons:
       - buttonName: Online
@@ -201,11 +189,11 @@ MonoBehaviour:
               m_CallState: 2
     - menuName: Settings
       buttons:
-      - buttonName: Audio
+      - buttonName: Video
         onClick:
           m_PersistentCalls:
             m_Calls: []
-      - buttonName: Video
+      - buttonName: Audio
         onClick:
           m_PersistentCalls:
             m_Calls: []
