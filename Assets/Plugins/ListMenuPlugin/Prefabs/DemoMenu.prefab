@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6000499044674785788}
   - component: {fileID: 5460147838155217805}
   m_Layer: 0
-  m_Name: MenuFrameDemo
+  m_Name: DemoMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuFrame: {fileID: 6407582862141234813}
-  buttonPrefab: {fileID: 8402656164895471715, guid: 58b5fc1b0c32f2a42a6b8148ff52dff2, type: 3}
+  buttonPrefab: {fileID: 9050526480922816440, guid: 21386d048af129041a19725b28306383, type: 3}
 --- !u!114 &-1791098897226809994
 MonoBehaviour:
   m_ObjectHideFlags: 0

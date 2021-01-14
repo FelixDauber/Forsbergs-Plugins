@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6000499044674785788}
   - component: {fileID: 5460147838155217805}
   m_Layer: 0
-  m_Name: MenuFrame
+  m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuFrame: {fileID: 6407582862141234813}
-  buttonPrefab: {fileID: 8402656164895471715, guid: 58b5fc1b0c32f2a42a6b8148ff52dff2, type: 3}
+  buttonPrefab: {fileID: 9050526480922816440, guid: 21386d048af129041a19725b28306383, type: 3}
 --- !u!114 &-1791098897226809994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,113 +122,7 @@ MonoBehaviour:
     currentMenu:
       menuName: 
       buttons: []
-    menues:
-    - menuName: Main
-      buttons:
-      - buttonName: Play
-        onClick:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 6000499044674785788}
-              m_TargetAssemblyTypeName: ListMenuPlugin.MenuHolder, Assembly-CSharp-firstpass
-              m_MethodName: SetCurrentMenu
-              m_Mode: 5
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: 
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: Play
-                m_BoolArgument: 0
-              m_CallState: 2
-      - buttonName: Settings
-        onClick:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 6000499044674785788}
-              m_TargetAssemblyTypeName: ListMenuPlugin.MenuHolder, Assembly-CSharp-firstpass
-              m_MethodName: SetCurrentMenu
-              m_Mode: 5
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: 
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: Settings
-                m_BoolArgument: 0
-              m_CallState: 2
-      - buttonName: Back
-        onClick:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 6000499044674785788}
-              m_TargetAssemblyTypeName: ListMenuPlugin.MenuHolder, Assembly-CSharp-firstpass
-              m_MethodName: ReturnToRootMenu
-              m_Mode: 1
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: Settings
-                m_BoolArgument: 0
-              m_CallState: 2
-    - menuName: Play
-      buttons:
-      - buttonName: Online
-        onClick:
-          m_PersistentCalls:
-            m_Calls: []
-      - buttonName: Local
-        onClick:
-          m_PersistentCalls:
-            m_Calls: []
-      - buttonName: Back
-        onClick:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 6000499044674785788}
-              m_TargetAssemblyTypeName: ListMenuPlugin.MenuHolder, Assembly-CSharp-firstpass
-              m_MethodName: ReturnToRootMenu
-              m_Mode: 1
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: 
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
-    - menuName: Settings
-      buttons:
-      - buttonName: Audio
-        onClick:
-          m_PersistentCalls:
-            m_Calls: []
-      - buttonName: Video
-        onClick:
-          m_PersistentCalls:
-            m_Calls: []
-      - buttonName: Input
-        onClick:
-          m_PersistentCalls:
-            m_Calls: []
-      - buttonName: Back
-        onClick:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 6000499044674785788}
-              m_TargetAssemblyTypeName: ListMenuPlugin.MenuHolder, Assembly-CSharp-firstpass
-              m_MethodName: ReturnToRootMenu
-              m_Mode: 1
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: 
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
+    menus: []
     onCurrentMenuChange:
       m_PersistentCalls:
         m_Calls: []
