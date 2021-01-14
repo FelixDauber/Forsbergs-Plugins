@@ -19,14 +19,13 @@ namespace Plugins.ListMenuPlugin.Scripts {
         }
 
         void CreateCurrentButtons(MenuData menuHolder) {
-            var currentMenu = GetComponent<MenuHolder>().menu.currentMenu;
 
-            if (currentMenu != null) {
+            if (menuHolder != null) {
                 foreach (var button in currentButtons) {
                     Destroy(button);
                 }
                 currentButtons = new List<GameObject>();
-                CreateButtons(currentMenu, menuFrame);
+                CreateButtons(menuHolder, menuFrame);
             }
         }
 
