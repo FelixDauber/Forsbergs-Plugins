@@ -136,7 +136,7 @@ namespace Plugins.ListMenuPlugin.Scripts
 
             //EditorGUILayout.PropertyField(serializedObject.FindProperty("menu")); //Don't to it like this... /F
             EditorGUILayout.PropertyField(menu);
-            //serializedObject.ApplyModifiedProperties();
+            serializedObject.ApplyModifiedProperties();
 
             //serializedObject.Update();
 
