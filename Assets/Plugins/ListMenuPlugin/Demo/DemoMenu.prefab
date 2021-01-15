@@ -261,7 +261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: ButtonSound
-    clip: {fileID: 8300000, guid: 5488401fda00c0c4ab275a648ee22f05, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 70e02441ad3cd8f488092b6a4933e446, type: 3}
+    volume: 0.3
     pitch: 1
     source: {fileID: 0}
