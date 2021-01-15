@@ -37,17 +37,19 @@ namespace Menu
         }
     }
 
-    [CustomEditor(typeof(MenuBase))]
-    public class MenuEditor : Editor
-    {
-        public override void OnInspectorGUI()
-        {
-            DrawDefaultInspector();
-            GUILayout.Space(10);
-            if (GUILayout.Button("CreateMenu"))
-            {
-                (target as MenuBase).CreateMenu();
-            }
-        }
-    }
+//#if UNITY_EDITOR
+//    [CustomEditor(typeof(MenuBase))]
+//    public class MenuEditor : Editor
+//    {
+//        public override void OnInspectorGUI()
+//        {
+//            DrawDefaultInspector();
+//            GUILayout.Space(10);
+//            if (GUILayout.Button("CreateMenu"))
+//            {
+//                (target as MenuBase).CreateMenu();
+//            }
+//        }
+//    }
+//#endif
 }
