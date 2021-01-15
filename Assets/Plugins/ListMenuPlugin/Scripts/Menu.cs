@@ -153,19 +153,23 @@ namespace Plugins.ListMenuPlugin.Scripts
                 {
                     menuHolderTarget.NewMenu();
                 }
+                EditorUtility.SetDirty(target);
             }
             if (GUILayout.Button("Remove Menu"))
             {
                 menuHolderTarget.menus[0].RemoveButton(menuHolderTarget.menus[menuHolderTarget.menus.Count - 1].menuName);
                 menuHolderTarget.menus.Remove(menuHolderTarget.menus[menuHolderTarget.menus.Count - 1]);
+                EditorUtility.SetDirty(target);
             }
             if(menuHolderTarget.menus.Count > 1)
                 if (GUILayout.Button("Add Menu Links To Root"))
                 {
-                    if(target != null)
+                    if (target != null)
+                    {
                         menuHolderTarget.AddMenuButtons();
+                        EditorUtility.SetDirty(target);
+                    }
                 }
-            EditorUtility.SetDirty(target);
         }
     }
 }
