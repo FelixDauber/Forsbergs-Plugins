@@ -8,32 +8,48 @@ namespace Plugins.ListMenuPlugin.Scripts
     public class Menu : MonoBehaviour
     {
         #region Variables
-        public List<MenuData> menus = new List<MenuData>();
-        public List<MenuData> Menus { get => new List<MenuData>(menus); }
 
-        //Events
+        public List<MenuData> menus = new List<MenuData>();
+        public List<MenuData> Menus => new List<MenuData>(menus);
+
+        ///<summary>
+        ///Sends out a message with the new menu which has been selected.
+        ///</summary>
         [HideInInspector] 
         public UnityEvent<MenuData> onCurrentMenuChange;
+
+        ///<summary>
+        ///Sends a message to all listeners, hook it up to any sound manager which accepts 
+        ///</summary>
         [HideInInspector]
         public UnityEvent<string> playSoundOnClick;
 
-        //Serialized in order to save to new buttons
+        //Serialized in order to save to new buttons, Internal variable
         [HideInInspector, SerializeField]
         private UnityEvent unityEvent = new UnityEvent();
         #endregion
 
         #region Public Methods
 
+        ///<summary>
+        ///Sets the current menu to the menu with the corresponding name.
+        ///</summary>
         public void SetCurrentMenu(string menuName)
         {
             onCurrentMenuChange.Invoke(GetMenu(menuName));
         }
 
+        ///<summary>
+        ///Sets the current menu to be the root menu.
+        ///</summary>
         public void ReturnToRootMenu()
         {
             SetCurrentMenu(menus[0].menuName);
         }
 
+        ///<summary>
+        ///Adds buttons which directs you from the root menu to all the other menus.
+        ///</summary>
         [ContextMenu("AddMenuButtons")]
         public void AddMenuButtons()
         {
@@ -46,24 +62,35 @@ namespace Plugins.ListMenuPlugin.Scripts
             }
         }
 
+        ///<summary>
+        ///Creates a new button for a specific menu with the specific name and returns it.
+        ///</summary>
         public ButtonData CreateButtonFor(string menuName, string buttonName)
         {
             return GetMenu(menuName).AddButton(buttonName);
         }
 
+        ///<summary>
+        ///Creates a new menu with a back button and returns it
+        ///</summary>
         [ContextMenu("NewMenu")]
         public MenuData NewMenu()
         {
             return NewMenu(true);
         }
+
+        ///<summary>
+        ///Creates a new menu and adds a back button unless bool is overridden to false, and returns it.
+        ///</summary>
         public MenuData NewMenu(bool includeBackButton = true)
         {
 
             unityEvent = new UnityEvent();
 
             UnityAction action = new UnityAction(ReturnToRootMenu);
+#if UNITY_EDITOR
             UnityEditor.Events.UnityEventTools.AddVoidPersistentListener(unityEvent, action);
-
+#endif
             MenuData newMenu = new MenuData();
             if (includeBackButton)
             {
@@ -75,6 +102,10 @@ namespace Plugins.ListMenuPlugin.Scripts
             newMenu.menuName += GetMenuIndex(newMenu.menuName);
             return newMenu;
         }
+
+        ///<summary>
+        ///Get the specific menu with the specific name.
+        ///</summary>
         public MenuData GetMenu(string menuName)
         {
             foreach (var menu in menus)
@@ -86,6 +117,10 @@ namespace Plugins.ListMenuPlugin.Scripts
             }
             throw new System.Exception($"Error menuData with name: {menuName} does not exist in menu");
         }
+
+        ///<summary>
+        ///Returns the location of the menu within the menues list.
+        ///</summary>
         public int GetMenuIndex(string menuName)
         {
             for (int i = 0; i < menus.Count; i++)
@@ -97,6 +132,10 @@ namespace Plugins.ListMenuPlugin.Scripts
             }
             throw new System.Exception($"Error menuData with name: {menuName} does not exist in menu");
         }
+
+        ///<summary>
+        ///Creates a button for the root menu.
+        ///</summary>
         public void RemoveMenu(string menuName)
         {
             menus.Remove(GetMenu(menuName));
@@ -104,20 +143,25 @@ namespace Plugins.ListMenuPlugin.Scripts
         #endregion
 
         #region Private Methods
-
+        ///<summary>
+        ///Creates a button for the root menu.
+        ///</summary>
         void CreateMenuButton(MenuData menu)
         {
             unityEvent = new UnityEvent();
             
             UnityAction<string> action = new UnityAction<string>(SetCurrentMenu);
 
+#if UNITY_EDITOR
             UnityEditor.Events.UnityEventTools.AddStringPersistentListener(unityEvent, action, menu.menuName);
-
+#endif
             CreateButtonFor(menus[0].menuName, menu.menuName).onClick = unityEvent;
         }
+
         #endregion
     }
 
+#if UNITY_EDITOR
     [CustomEditor(typeof(Menu))]
     public class MenuHolderEditor : Editor
     {
@@ -133,7 +177,7 @@ namespace Plugins.ListMenuPlugin.Scripts
         {
             //DrawDefaultInspector();
 
-
+            
             //EditorGUILayout.PropertyField(serializedObject.FindProperty("menu")); //Don't to it like this... /F
             EditorGUILayout.PropertyField(menu);
             serializedObject.ApplyModifiedProperties();
@@ -172,4 +216,5 @@ namespace Plugins.ListMenuPlugin.Scripts
                 }
         }
     }
+#endif
 }
